@@ -13,6 +13,13 @@
     <packaging>pom</packaging>
     <modules>
         <module>chess</module>
+        <module>envelopes</module>
+        <module>triangles</module>
+        <module>file-parser</module>
+        <module>number-to-words</module>
+        <module>lucky-tickets</module>
+        <module>number-sequence</module>
+        <module>fibonacci</module>
     </modules>
 
 
