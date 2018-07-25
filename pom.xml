@@ -10,6 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>elementary-tasks</module>
+        <module>lesson-tasks</module>
     </modules>
 
     <build>
