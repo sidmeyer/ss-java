@@ -24,9 +24,9 @@ public class FibonacciNumberGeneratorTest {
 
 	@Test
 	public void generateNumbersTest() {
-		List<Integer> expectedSequence = new ArrayList<>(
-				Arrays.asList(0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144, 233, 377, 610, 987, 1597, 2584, 4181));
-		List<Integer> actualSequence = new LinkedList<>();
+		List<Long> expectedSequence = new ArrayList<>(
+				Arrays.asList(0L, 1L, 1L, 2L, 3L, 5L, 8L, 13L, 21L, 34L, 55L, 89L, 144L, 233L, 377L, 610L, 987L, 1597L, 2584L, 4181L));
+		List<Long> actualSequence = new LinkedList<>();
 
 		for (int i = 0; i < 20; i++) {
 			actualSequence.add(numberGenerator.getNextNumber());

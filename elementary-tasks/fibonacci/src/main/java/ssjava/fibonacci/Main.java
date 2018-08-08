@@ -30,22 +30,10 @@ public class Main {
 		}
 
 		NumberGenerator numberGenerator = new FibonacciNumberGenerator();
-		List<Long> numbers = new LinkedList<>();
 
-		boolean firstNumberFounded = false;
-		boolean lastNumberFounded = false;
+		NumbersProcessor processor = new NumbersProcessor(numberGenerator, numberChecker);
 
-		while (!(firstNumberFounded && lastNumberFounded)) {
-			long currentNumber = numberGenerator.getNextNumber();
-			if (numberChecker.isValid(currentNumber)) {
-				firstNumberFounded = true;
-				numbers.add(currentNumber);
-			} else if (firstNumberFounded) {
-				lastNumberFounded = true;
-			}
-		}
-
-		System.out.println(numbers);
+		System.out.println(processor.getNumbers());
 	}
 
 	private static void printHelp() {
