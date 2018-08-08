@@ -1,7 +1,7 @@
 package ssjava.numbersequence;
 
-import java.util.stream.Collectors;
-import java.util.stream.IntStream;
+import java.util.LinkedList;
+import java.util.List;
 
 /**
  * Created by Stas on 25.07.2018.
@@ -10,23 +10,32 @@ public class Main {
 
     public static void main(String[] args) {
         final int length;
-        final int minSquare;
+        final long minSquare;
 
         try {
             length = Integer.parseInt(args[0]);
-            minSquare = Integer.parseInt(args[1]);
+            minSquare = Long.parseLong(args[1]);
         } catch (Exception e) {
             System.out.println("Cannot parse input params.");
             printHelp();
             return;
         }
 
-        String sequenceString = IntStream.rangeClosed(1, length)
-                .filter(n -> n * n >= minSquare)
-                .mapToObj(Integer::toString)
-                .collect(Collectors.joining(","));
+        List<Integer> sequence = new LinkedList<>();
 
-        System.out.println(sequenceString);
+        NumberGenerator numberGenerator = new NaturalNumberGenerator();
+        NumberChecker numberChecker = new MinSquareNumberChecker(minSquare);
+
+        while (sequence.size() <= length) {
+            int currentNumber = numberGenerator.getNextNumber();
+            if (numberChecker.isValid(currentNumber)) {
+                sequence.add(currentNumber);
+            }
+        }
+
+        SequenceFormatter sequenceFormatter = new CommaSeparatedSequenceFormatter();
+
+        System.out.println(sequenceFormatter.formatSequence(sequence));
     }
 
     private static void printHelp() {
@@ -36,4 +45,26 @@ public class Main {
                 "Example:\n" +
                 "java ssjava.numbersequence.Main 8 10");
     }
+
+//    public static void main(String[] args) {
+//        final int length;
+//        final long minSquare;
+//
+//        try {
+//            length = Integer.parseInt(args[0]);
+//            minSquare = Long.parseLong(args[1]);
+//        } catch (Exception e) {
+//            System.out.println("Cannot parse input params.");
+//            printHelp();
+//            return;
+//        }
+//
+//        String sequenceString = IntStream.iterate(0, i -> i + 1)
+//                .filter(n -> n * n >= minSquare)
+//                .limit(length)
+//                .mapToObj(Integer::toString)
+//                .collect(Collectors.joining(","));
+//
+//        System.out.println(sequenceString);
+//    }
 }
