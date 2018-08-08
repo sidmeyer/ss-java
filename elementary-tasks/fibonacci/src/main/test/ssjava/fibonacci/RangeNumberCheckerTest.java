@@ -18,7 +18,7 @@ public class RangeNumberCheckerTest {
 	}
 
 	@Test
-	public void checkValidNumber() throws Exception {
+	public void checkValidNumber() {
 		int checkedNumber = 10;
 		assertTrue("Valid number " + checkedNumber + " reported as invalid",
 				numberChecker.isValid(checkedNumber));
@@ -33,7 +33,7 @@ public class RangeNumberCheckerTest {
 	}
 
 	@Test
-	public void checkInvalidNumber() throws Exception {
+	public void checkInvalidNumber() {
 		int checkedNumber = 9;
 		assertFalse("Invalid number " + checkedNumber + " reported as valid",
 				numberChecker.isValid(checkedNumber));
