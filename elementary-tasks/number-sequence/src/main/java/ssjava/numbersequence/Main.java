@@ -26,7 +26,7 @@ public class Main {
         NumberGenerator numberGenerator = new NaturalNumberGenerator();
         NumberChecker numberChecker = new MinSquareNumberChecker(minSquare);
 
-        while (sequence.size() <= length) {
+        while (sequence.size() < length) {
             int currentNumber = numberGenerator.getNextNumber();
             if (numberChecker.isValid(currentNumber)) {
                 sequence.add(currentNumber);
