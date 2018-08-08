@@ -5,10 +5,10 @@ package ssjava.fibonacci;
  */
 public class RangeNumberChecker implements NumberChecker {
 
-	private final int start;
-	private final int finish;
+	private final long start;
+	private final long finish;
 
-	public RangeNumberChecker(final int start, final int finish) {
+	public RangeNumberChecker(final long start, final long finish) {
 
 		if (start > finish) {
 			throw new IllegalArgumentException("Range start cannot be greater then finish.");
@@ -19,7 +19,7 @@ public class RangeNumberChecker implements NumberChecker {
 	}
 
 	@Override
-	public boolean isValid(final int number) {
+	public boolean isValid(final long number) {
 		return number >= start && number <= finish;
 	}
 }

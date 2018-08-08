@@ -5,11 +5,11 @@ package ssjava.fibonacci;
  */
 public class FibonacciNumberGenerator implements NumberGenerator {
 
-	private int beforeLastNumber = -1;
-	private int lastNumber = -1;
+	private long beforeLastNumber;
+	private long lastNumber = -1;
 
 	@Override
-	public int getNextNumber() {
+	public long getNextNumber() {
 		if (lastNumber == -1) {
 			lastNumber = 0;
 			return lastNumber;
@@ -21,7 +21,7 @@ public class FibonacciNumberGenerator implements NumberGenerator {
 			return lastNumber;
 		}
 
-		int newNumber = beforeLastNumber + lastNumber;
+		long newNumber = beforeLastNumber + lastNumber;
 		beforeLastNumber = lastNumber;
 		lastNumber = newNumber;
 

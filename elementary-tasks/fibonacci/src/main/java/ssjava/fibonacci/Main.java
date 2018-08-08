@@ -30,13 +30,13 @@ public class Main {
 		}
 
 		NumberGenerator numberGenerator = new FibonacciNumberGenerator();
-		List<Integer> numbers = new LinkedList<>();
+		List<Long> numbers = new LinkedList<>();
 
 		boolean firstNumberFounded = false;
 		boolean lastNumberFounded = false;
 
 		while (!(firstNumberFounded && lastNumberFounded)) {
-			int currentNumber = numberGenerator.getNextNumber();
+			long currentNumber = numberGenerator.getNextNumber();
 			if (numberChecker.isValid(currentNumber)) {
 				firstNumberFounded = true;
 				numbers.add(currentNumber);

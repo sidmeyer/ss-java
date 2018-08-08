@@ -17,7 +17,7 @@ public class LengthNumberChecker implements NumberChecker {
 	}
 
 	@Override
-	public boolean isValid(int number) {
+	public boolean isValid(long number) {
 		String digitsString = String.valueOf(number).replace("-", "");
 		return digitsString.length() == length;
 	}
